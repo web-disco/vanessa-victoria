@@ -103,8 +103,8 @@ export default {
             group: 'quote'
         },
         {
-            name: 'testimonialTitle',
-            title: 'Testimonial Title',
+            name: 'testimonialsTitle',
+            title: 'Testimonials Title',
             type: 'string',
             group: 'testimonial',
         },
