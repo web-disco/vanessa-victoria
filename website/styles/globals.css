@@ -1,26 +1,20 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,300;0,500;1,100;1,300;1,500&family=Tangerine&display=swap');
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+#intro-zip {
+    animation: fill 1.8s infinite;
+    animation-fill-mode: forwards;
+    height: 0px;
   }
-  body {
-    color: white;
-    background: black;
+
+@keyframes fill {
+    from {
+      height: 0px;
+    }
+    to {
+      height: 80px;
+    }
   }
-}

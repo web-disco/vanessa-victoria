@@ -1,8 +1,27 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { NextComponentType } from "next";
+import { AppContext, AppInitialProps, AppLayoutProps } from "next/app";
+import { LayoutGroup } from "framer-motion";
+import dynamic from "next/dynamic";
+import { CookiesProvider } from "react-cookie";
+import { ReactNode } from "react";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+import "../styles/globals.css";
 
-export default MyApp
+const Page = dynamic(() => import("../layout/page"));
+
+const MyApp: NextComponentType<AppContext, AppInitialProps, AppLayoutProps> = ({
+  Component,
+  pageProps,
+}: AppLayoutProps) => {
+  const getLayout =
+    Component.getLayout || ((page: ReactNode) => <Page>{page}</Page>);
+  return (
+    <LayoutGroup>
+      <CookiesProvider>
+        {getLayout(<Component {...pageProps} />)}
+      </CookiesProvider>
+    </LayoutGroup>
+  );
+};
+
+export default MyApp;
