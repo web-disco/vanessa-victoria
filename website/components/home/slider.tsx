@@ -1,8 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper";
-import "swiper/css";
-import "swiper/css/autoplay";
-import "swiper/css/effect-fade";
 
 import { urlFor } from "../../utils/image-helper";
 import { SliderProps } from "../../interfaces/SliderProps";

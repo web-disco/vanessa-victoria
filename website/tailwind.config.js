@@ -12,11 +12,12 @@ module.exports = {
     extend: {
       colors: {
         offBlack: "#272727",
+        offWhite: "#E6E4DD",
         sage: "#B2AC88",
         brown: "#827252",
         lightBrown: "#C3BCAE",
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

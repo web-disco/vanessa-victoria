@@ -6,6 +6,10 @@ import { CookiesProvider } from "react-cookie";
 import { ReactNode } from "react";
 
 import "../styles/globals.css";
+import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/css/effect-fade";
+import "swiper/css/pagination";
 
 const Page = dynamic(() => import("../layout/page"));
 

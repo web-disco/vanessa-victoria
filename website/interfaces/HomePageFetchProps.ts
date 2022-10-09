@@ -1,6 +1,8 @@
-import { QuoteImage } from "./QuoteImage"
+import { PortableTextProps } from "./PortableTextProps"
+import { Image } from "./Image"
 import { Slider } from "./Slider"
-import { Testimonial } from "./Testimonial"
+import { TestimonialProps } from "./TestimonialProps"
+import { FeaturedGalleryProps } from "./FeaturedGalleryProps"
 
 export interface HomePageFetchProps {
     _createdAt: string
@@ -9,12 +11,14 @@ export interface HomePageFetchProps {
     _type: string
     _updatedAt: string
     description: string
-    quote: string
-    quoteImage: QuoteImage
+    featuredGallery: FeaturedGalleryProps
+    quote: PortableTextProps
+    quoteImage: Image
     slider: Slider[]
     subtitle: string
-    testimonials: Testimonial[]
+    testimonials: TestimonialProps[]
     testimonialsTitle: string
     title: string
+
   }
   

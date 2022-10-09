@@ -12,21 +12,21 @@ const Layout = ({ children }: LayoutProps) => {
   const [cookies, setCookie] = useCookies(["visited"]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (cookies.visited) {
-      setLoading(false);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (cookies.visited) {
+  //     setLoading(false);
+  //   }
+  // }, [cookies]);
 
-  if (loading || !cookies.visited) {
-    return (
-      <Loader
-        cookie={cookies.visited}
-        setCookie={setCookie}
-        setLoading={setLoading}
-      />
-    );
-  }
+  // if (loading || !cookies.visited) {
+  //   return (
+  //     <Loader
+  //       cookie={cookies.visited}
+  //       setCookie={setCookie}
+  //       setLoading={setLoading}
+  //     />
+  //   );
+  // }
 
   return (
     <>

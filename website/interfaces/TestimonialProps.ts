@@ -1,5 +1,5 @@
 
-export interface Testimonial {
+export interface TestimonialProps {
     _key: string;
     _type: string;
     name: string;
