@@ -15,7 +15,7 @@ const Testimonials = ({
       <img
         src="/assets/testimonals-accent-1.svg"
         alt="accent"
-        className="absolute -top-4 -left-2 z-10"
+        className="absolute left-3 lg:-left-4 -top-5 z-10"
       />
       <h3 className="text-5xl font-tangerine text-brown mb-4">
         {testimonialsTitle}
@@ -25,7 +25,7 @@ const Testimonials = ({
         slidesPerView={1}
         autoHeight
         autoplay={{
-          delay: 4500,
+          delay: 5500,
         }}
         onSwiper={(swiper) => {
           swiper.slideNext();
@@ -45,7 +45,7 @@ const Testimonials = ({
       <img
         src="/assets/testimonials-accent-2.svg"
         alt="accent"
-        className="absolute -bottom-4 -right-2 z-10"
+        className="absolute -bottom-4 right-3 lg:-right-4 z-10"
       />
     </div>
   );

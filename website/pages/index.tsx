@@ -16,8 +16,6 @@ const FeaturedGallery = dynamic(
 );
 
 const Home = ({ page }: HomePageProps) => {
-  console.log(page);
-
   const {
     slider,
     title,

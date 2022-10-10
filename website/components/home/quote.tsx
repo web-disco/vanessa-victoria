@@ -13,18 +13,20 @@ interface QuoteProps {
 
 const Quote = ({ quote, quoteImage }: QuoteProps) => {
   return (
-    <div className="container flex justify-between h-full items-center my-40">
-      <div className="max-w-sm">
+    <div className="container text-center lg:text-left flex flex-col-reverse lg:flex-row justify-between h-full items-center my-40 lg:space-x-8">
+      <div className="max-w-4xl lg:max-w-lg">
         <div className="font-light italic leading-7">
           <PortableText value={quote} />
         </div>
-        <Link href="/about">
-          <a className="inline-block bg-sage rounded-md py-3 px-8 mt-8 text-offWhite border border-sage transition-all hover:bg-transparent hover:text-sage">
-            Meet Vanessa
-          </a>
-        </Link>
+        <div className="lg:text-center">
+          <Link href="/about#meet-vanessa">
+            <a className="font-fira font-light tracking-wide inline-block bg-sage rounded-md py-3 px-8 mt-8 text-offWhite border border-sage transition-all hover:bg-transparent hover:text-sage">
+              Meet Vanessa
+            </a>
+          </Link>
+        </div>
       </div>
-      <div>
+      <div className="mb-8">
         <Img
           src={urlFor(quoteImage).url()}
           alt={quoteImage.alt || ""}
