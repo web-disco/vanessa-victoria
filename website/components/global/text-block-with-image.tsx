@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Img from "next/future/image";
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
@@ -16,8 +16,6 @@ const TextBlockWithImage = ({
   imgPosition,
   id,
 }: TextBlockWithImageProps) => {
-  const textLength = 360;
-  const [showLess, setShowLess] = useState(true);
   if (imgPosition === "left") {
     return (
       <div

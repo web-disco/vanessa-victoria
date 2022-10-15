@@ -45,7 +45,7 @@ const Home = ({ page }: HomePageProps) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const page: HomePageFetchProps = await client.fetch(homePageQuery);
+  const page = await client.fetch(homePageQuery);
 
   const featuredGallery = await client.fetch(
     `*[_type == "galleries" && _id == $ref] {
@@ -60,5 +60,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       page,
     },
+    revalidate: 10,
   };
 };

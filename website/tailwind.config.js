@@ -16,6 +16,7 @@ module.exports = {
         sage: "#B2AC88",
         brown: "#827252",
         lightBrown: "#C3BCAE",
+        menuBrown: "#AEA48F",
       },
     },
   },

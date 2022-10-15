@@ -8,8 +8,12 @@ body {
   background-color: #E6E4DD;
 }
 
+/* html {
+  scroll-behavior: smooth;
+} */
+
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 25px;
@@ -46,4 +50,9 @@ body {
 
 .prose {
   max-width: 100%;
+}
+
+.sticky-nav {
+  backdrop-filter: saturate(180%) blur(20px);
+  transition: background-color 0.1 ease-in-out;
 }

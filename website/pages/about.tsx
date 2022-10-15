@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import slufify from "slugify";
 
 import client from "../client";
+import CallToAction from "../components/call-to-action";
 
 import { AboutPageFetchProps } from "../interfaces/AboutPageFetchProps";
 import { AboutPageProps } from "../interfaces/AboutPageProps";
@@ -47,6 +48,11 @@ const About = ({ page }: AboutPageProps) => {
         imgPosition="left"
         id={vanessaId}
       />
+      <CallToAction
+        title="Let's create the most memorable event together."
+        link="/contact"
+        linkText="Connect"
+      />
     </>
   );
 };
@@ -54,12 +60,12 @@ const About = ({ page }: AboutPageProps) => {
 export default About;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const page: AboutPageFetchProps = await client.fetch(aboutPageQuery);
+  const page = await client.fetch(aboutPageQuery);
 
   return {
     props: {
       page,
     },
-    revalidate: 1,
+    revalidate: 10,
   };
 };

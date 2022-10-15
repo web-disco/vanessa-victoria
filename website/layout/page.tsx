@@ -6,6 +6,7 @@ import { useCookies } from "react-cookie";
 import { LayoutProps } from "../interfaces/LayoutProps";
 
 const Nav = dynamic(() => import("../components/global/nav"));
+const Footer = dynamic(() => import("../components/global/footer"));
 const Loader = dynamic(() => import("../components/loader"));
 
 const Layout = ({ children }: LayoutProps) => {
@@ -32,7 +33,7 @@ const Layout = ({ children }: LayoutProps) => {
     <>
       <Nav />
       <main>{children}</main>
-      <footer>footer</footer>
+      <Footer />
     </>
   );
 };

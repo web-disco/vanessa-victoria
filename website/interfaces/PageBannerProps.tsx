@@ -1,3 +1,3 @@
 export interface PageBannerProps {
-  type: string;
+  type?: string;
 }

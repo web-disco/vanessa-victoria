@@ -7,7 +7,7 @@ const FeaturedGallery = ({ gallery }: any) => {
   const image1 = imageBlock.image1;
   const image2 = imageBlock.image2;
   return (
-    <div className="container grid grid-cols-1 sm:grid-cols-2 grid-rows-6 gap-10 min-h-[800px] my-40">
+    <div className="container grid grid-cols-1 sm:grid-cols-2 grid-rows-4 gap-10 min-h-[800px] my-40">
       <div className="col-span-1 row-span-1 sm:border-r border-sage">
         <h3 className="font-tangerine text-4xl text-brown mb-2">
           {gallery.title}
