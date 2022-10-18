@@ -1,7 +1,5 @@
-import { AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import { useCookies } from "react-cookie";
+import { useState, useEffect } from "react";
 
 import { LayoutProps } from "../interfaces/LayoutProps";
 
@@ -10,29 +8,10 @@ const Footer = dynamic(() => import("../components/global/footer"));
 const Loader = dynamic(() => import("../components/loader"));
 
 const Layout = ({ children }: LayoutProps) => {
-  const [cookies, setCookie] = useCookies(["visited"]);
-  const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   if (cookies.visited) {
-  //     setLoading(false);
-  //   }
-  // }, [cookies]);
-
-  // if (loading || !cookies.visited) {
-  //   return (
-  //     <Loader
-  //       cookie={cookies.visited}
-  //       setCookie={setCookie}
-  //       setLoading={setLoading}
-  //     />
-  //   );
-  // }
-
   return (
     <>
       <Nav />
-      <main>{children}</main>
+      {children}
       <Footer />
     </>
   );

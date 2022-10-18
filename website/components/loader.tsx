@@ -1,43 +1,28 @@
-import Lottie from "react-lottie";
 import { motion } from "framer-motion";
-import * as animationData from "../assets/logo-animation.lottie.json";
 
 interface LoaderProps {
-  cookie: string;
-  setCookie: Function;
-  setLoading: Function;
+  hasVisited: Boolean;
+  setHasVisited: Function;
 }
 
-const Loader = ({ cookie, setCookie, setLoading }: LoaderProps) => {
-  const lottieOptions = {
-    loop: false,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+const Loader = ({ hasVisited, setHasVisited }: LoaderProps) => {
+  setTimeout(() => {
+    localStorage.setItem("visited", "true");
+    setHasVisited(true);
+  }, 4500);
+
+  console.log(hasVisited);
+
   return (
     <motion.div
-      className="w-full h-screen flex items-center justify-center bg-lightBrown fixed z-[50]"
-      initial={{ opacity: 1 }}
-      animate={{ opacity: cookie ? 0 : 1 }}
+      className="w-full h-screen flex items-center justify-center fixed z-[50] bg-[#EFECE7"
       key="loader"
+      initial={{ opacity: 1 }}
+      animate={{ opacity: hasVisited ? 0 : 1 }}
     >
-      <Lottie
-        options={lottieOptions}
-        width={400}
-        height={400}
-        eventListeners={[
-          {
-            eventName: "complete",
-            callback: () => {
-              setCookie("visited", true);
-              setLoading(false);
-            },
-          },
-        ]}
-      />
+      <video width="400" autoPlay muted>
+        <source src="/assets/logo.mp4" type="video/mp4" />
+      </video>
     </motion.div>
   );
 };

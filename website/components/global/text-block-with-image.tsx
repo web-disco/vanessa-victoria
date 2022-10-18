@@ -22,7 +22,8 @@ const TextBlockWithImage = ({
         className="container lg:text-left flex flex-col lg:flex-row justify-between h-full my-40 lg:space-x-20"
         id={id}
       >
-        <div>
+        <div className="relative w-full h-full">
+          <div className="w-full h-full absolute -top-6 -left-6 z-[-1] border border-sage" />
           <Img
             src={urlFor(image).width(1000).height(1000).url()}
             alt={image.alt || ""}
@@ -69,8 +70,8 @@ const TextBlockWithImage = ({
             </Link>
           )}
         </div>
-        <div>
-          {" "}
+        <div className="relative w-full h-full">
+          <div className="w-full h-full absolute -top-6 -right-6 z-[-1] border border-sage" />
           <Img
             src={urlFor(image).width(1000).height(1000).url()}
             alt={image.alt || ""}
