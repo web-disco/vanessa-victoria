@@ -173,6 +173,7 @@ const Nav = () => {
                 </button>
                 {serviceLinks.map((link: any, i) => (
                   <button
+                    key={link._id}
                     className="text-sm block font-fira font-light tracking-wider text-offWhite mb-2 hover:text-brown transition-all"
                     onClick={() => {
                       router.push(`/services#${link.slug.current}`);
