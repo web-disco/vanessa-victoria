@@ -95,7 +95,7 @@ const Nav = () => {
           </Link>
           <div className="flex items-center">
             <Link href="/contact">
-              <a className="font-fira font-light tracking-wide inline-block bg-brown rounded-md py-2 px-4 text-offWhite border border-brown transition-all hover:bg-transparent hover:border-brown hover:text-brown">
+              <a className="hidden md:inline-block font-fira font-light tracking-wide bg-brown rounded-md py-2 px-4 text-offWhite border border-brown transition-all hover:bg-transparent hover:border-brown hover:text-brown">
                 Contact Us
               </a>
             </Link>
