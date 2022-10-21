@@ -1,9 +1,8 @@
-import type { GetStaticProps } from "next";
+import type { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 
 import client from "../client";
 
-import { HomePageFetchProps } from "../interfaces/HomePageFetchProps";
 import { HomePageProps } from "../interfaces/HomePageProps";
 import { homePageQuery } from "../utils/homePageQuery";
 
@@ -44,7 +43,7 @@ const Home = ({ page }: HomePageProps) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const page = await client.fetch(homePageQuery);
 
   const featuredGallery = await client.fetch(
@@ -60,6 +59,5 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       page,
     },
-    revalidate: 10,
   };
 };

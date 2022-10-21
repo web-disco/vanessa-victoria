@@ -1,4 +1,4 @@
-import type { GetStaticProps } from "next";
+import type { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 import slufify from "slugify";
 
@@ -55,7 +55,7 @@ const About = ({ page }: AboutPageProps) => {
 
 export default About;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const page = await client.fetch(aboutPageQuery);
 
   return {

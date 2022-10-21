@@ -7,6 +7,6 @@ export interface TextBlockWithImageProps {
     image: Image;
     link?: string;
     linkText?: string;
-    imgPosition: "left" | "right";
+    imgPosition: string | "left" | "right";
     id?: string;
 }

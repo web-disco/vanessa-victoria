@@ -45,7 +45,8 @@ export default {
     {
       name: "serviceDescription",
       title: "Service Description",
-      type: "text",
+      type: "array",
+      of: [{ type: "block" }],
     },
     {
       name: "serviceImage",

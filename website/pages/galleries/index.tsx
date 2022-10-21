@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import Image from "next/future/image";
 import Link from "next/link";
 
@@ -47,7 +47,7 @@ const Galleries: NextPage<GalleriesPageProps> = ({ galleries, gallery }) => {
 
 export default Galleries;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const galleries = await client.fetch(`*[_type == "galleries"]`);
   const gallery = await client.fetch(`*[_type == "gallery"][0]`);
 
@@ -56,6 +56,5 @@ export const getStaticProps: GetStaticProps = async () => {
       galleries,
       gallery,
     },
-    revalidate: 10,
   };
 };

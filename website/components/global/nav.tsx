@@ -85,12 +85,14 @@ const Nav = () => {
         <div className="flex justify-between items-center w-full">
           <Link href="/">
             <a title="Home">
-              <Img
-                src="/assets/logo.svg"
-                width="180"
-                height="150"
-                alt="Vanessa Victoria"
-              />
+              <div className="max-w-[140px] md:max-w-[180px]">
+                <Img
+                  src="/assets/logo.svg"
+                  width="180"
+                  height="150"
+                  alt="Vanessa Victoria"
+                />
+              </div>
             </a>
           </Link>
           <div className="flex items-center">

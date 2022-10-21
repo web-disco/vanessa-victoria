@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps, GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 import Image from "next/future/image";
 import Lightbox from "react-image-lightbox";
@@ -146,33 +146,16 @@ const SingleGallery = ({ gallery }: any) => {
 
 export default SingleGallery;
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const gallery = await client.fetch(
     `*[_type == "galleries" && slug.current == $ref][0]{
         ...
       }`,
-    { ref: params?.slug }
+    { ref: context.params?.slug }
   );
-
   return {
     props: {
       gallery,
     },
-    revalidate: 10,
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const galleries = await client.fetch(`*[_type == "galleries"]`);
-  const paths = galleries.map((gallery: any) => {
-    return {
-      params: {
-        slug: gallery.slug.current,
-      },
-    };
-  });
-  return {
-    paths,
-    fallback: true,
   };
 };
