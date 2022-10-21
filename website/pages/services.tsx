@@ -27,6 +27,7 @@ const Services = ({ services }: ServicesProps) => {
             description={service.serviceDescription}
             imgPosition={position}
             id={service.slug.current}
+            key={service._id}
           />
         );
       })}
