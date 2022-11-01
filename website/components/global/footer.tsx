@@ -23,6 +23,8 @@ const Footer = () => {
     };
     init();
   }, []);
+
+  console.log(servicesLinks);
   return (
     <footer className="container border-t border-sage">
       <div className="flex justify-between py-10 font-light">
@@ -100,7 +102,7 @@ const Footer = () => {
               columnGap: "2rem",
             }}
           >
-            {servicesLinks &&
+            {servicesLinks.length > 0 &&
               servicesLinks.map((link: any) => (
                 <li className="hover:text-brown transition-all" key={link._id}>
                   <Link href={`/services#${link.slug.current}`}>
