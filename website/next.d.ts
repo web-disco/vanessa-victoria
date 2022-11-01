@@ -22,6 +22,7 @@ import type {
   }
   
   declare global {
+    var hbspt: any
     namespace NodeJS {
       interface ProcessEnv {
         SANITY_PROJECT_ID: string;

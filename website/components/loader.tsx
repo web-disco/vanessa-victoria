@@ -11,8 +11,6 @@ const Loader = ({ hasVisited, setHasVisited }: LoaderProps) => {
     setHasVisited(true);
   }, 4500);
 
-  console.log(hasVisited);
-
   return (
     <motion.div
       className="w-full h-screen flex items-center justify-center fixed z-[50] bg-[#EFECE7"

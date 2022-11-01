@@ -130,17 +130,20 @@ const SingleGallery = ({ gallery }: any) => {
     }
   };
   return (
-    <div>
+    <>
       <PageBanner type={gallery && gallery.title} />
-      <div className="container grid grid-cols-2 gap-4 lg:gap-8 my-8">
-        {gallery?.imageBlocks?.map((block: any, index: number) =>
-          renderImageBlock(block, index)
+      <div className="container">
+        <div className="grid grid-cols-2 gap-4 lg:gap-8 my-8">
+          {gallery?.imageBlocks?.map((block: any, index: number) =>
+            renderImageBlock(block, index)
+          )}
+        </div>
+        <p>Credits: {gallery.credits}</p>
+        {isOpen && (
+          <Lightbox mainSrc={src} onCloseRequest={() => setIsOpen(false)} />
         )}
       </div>
-      {isOpen && (
-        <Lightbox mainSrc={src} onCloseRequest={() => setIsOpen(false)} />
-      )}
-    </div>
+    </>
   );
 };
 

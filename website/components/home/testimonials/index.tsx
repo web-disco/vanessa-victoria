@@ -11,7 +11,7 @@ const Testimonials = ({
   testimonials,
 }: TestimonialsProps) => {
   return (
-    <div className="container text-center relative my-20">
+    <div className="max-w-[800px] mx-auto text-center relative my-20">
       <img
         src="/assets/testimonals-accent-1.svg"
         alt="accent"

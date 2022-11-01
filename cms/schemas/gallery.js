@@ -33,5 +33,11 @@ export default {
       of: [{ type: "string" }],
       group: "seo",
     },
+    {
+      name: "video",
+      title: "Video",
+      type: "file",
+      group: "video",
+    },
   ],
 };

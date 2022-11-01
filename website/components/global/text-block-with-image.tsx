@@ -40,7 +40,7 @@ const TextBlockWithImage = ({
           </div>
           {link && linkText && (
             <Link href={link}>
-              <a className="block sm:max-w-[200px] text-center mt-8 font-fira font-light tracking-wide bg-sage rounded-md py-3 px-8 text-offWhite border border-sage transition-all hover:bg-transparent hover:text-sage">
+              <a className="block sm:max-w-[200px] text-center mt-8 font-fira font-light tracking-wide bg-sage py-3 px-8 text-offWhite border border-sage transition-all hover:bg-transparent hover:text-sage">
                 {linkText}
               </a>
             </Link>
@@ -63,7 +63,7 @@ const TextBlockWithImage = ({
           </div>
           {link && linkText && (
             <Link href={link}>
-              <a className="block sm:max-w-[200px] text-center mt-8 font-fira font-light tracking-wide bg-sage rounded-md py-3 px-8 text-offWhite border border-sage transition-all hover:bg-transparent hover:text-sage">
+              <a className="block sm:max-w-[200px] text-center mt-8 font-fira font-light tracking-wide bg-sage py-3 px-8 text-offWhite border border-sage transition-all hover:bg-transparent hover:text-sage">
                 {linkText}
               </a>
             </Link>

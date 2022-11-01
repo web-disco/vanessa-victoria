@@ -20,7 +20,7 @@ const Quote = ({ quote, quoteImage }: QuoteProps) => {
         </div>
         <div className="lg:text-center">
           <Link href="/about#meet-vanessa">
-            <a className="font-fira font-light tracking-wide inline-block bg-sage rounded-md py-3 px-8 mt-8 text-offWhite border border-sage transition-all hover:bg-transparent hover:text-sage">
+            <a className="font-fira font-light tracking-wide inline-block bg-sage py-3 px-8 mt-8 text-offWhite border border-sage transition-all hover:bg-transparent hover:text-sage">
               Meet Vanessa
             </a>
           </Link>

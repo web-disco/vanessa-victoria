@@ -8,10 +8,9 @@ import { FaTiktok } from "react-icons/fa";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 import client from "../../client";
-import { websiteSettingsQuery } from "../../utils/websiteSettingsQuery";
+import { websiteSettingsQuery, servicesQuery } from "../../utils/queries";
 
 import { WebsiteSettingsProps } from "../../interfaces/WebsiteSettingsProps";
-import { servicesQuery } from "../../utils/servicesQuery";
 
 const Nav = () => {
   const router = useRouter();
@@ -19,8 +18,6 @@ const Nav = () => {
   const [websiteSettings, setWebsiteSettings] =
     useState<WebsiteSettingsProps>();
   const [serviceLinks, setServicesLinks] = useState([]);
-
-  console.log(serviceLinks);
 
   const [links, setLinks] = useState([
     {
@@ -97,7 +94,7 @@ const Nav = () => {
           </Link>
           <div className="flex items-center">
             <Link href="/contact">
-              <a className="hidden md:inline-block font-fira font-light tracking-wide bg-brown rounded-md py-2 px-4 text-offWhite border border-brown transition-all hover:bg-transparent hover:border-brown hover:text-brown">
+              <a className="hidden md:inline-block font-fira font-light tracking-wide bg-brown py-2 px-4 text-offWhite border border-brown transition-all hover:bg-transparent hover:border-brown hover:text-brown">
                 Contact Us
               </a>
             </Link>
@@ -140,7 +137,15 @@ const Nav = () => {
               </button>
             </div>
             <div className="flex items-start justify-center space-x-8 px-4 sm:px-8">
-              <motion.ul key="nav" className="">
+              <motion.ul
+                key="nav"
+                className=""
+                initial={{ visibility: "hidden" }}
+                animate={{
+                  visibility: isOpen ? "visible" : "hidden",
+                }}
+                exit={{ display: "none" }}
+              >
                 {links
                   .filter((l) => l.text !== "Services")
                   .map((link, i) => (
@@ -152,7 +157,7 @@ const Nav = () => {
                       transition={{ delay: isOpen ? 1 + i * 0.1 : 0 }}
                     >
                       <button
-                        className="text-2xl sm:text-6xl font-fira font-bold tracking-wider text-offWhite mb-6  sm:mb-14 hover:text-brown transition-all"
+                        className="text-2xl sm:text-6xl font-fira font-bold tracking-wider text-offWhite mb-6  sm:mb-14 hover:opacity-50 transition-all"
                         onClick={() => {
                           router.push(link.link);
                           setIsOpen(false);
@@ -165,18 +170,21 @@ const Nav = () => {
               </motion.ul>
               <motion.div
                 key="button"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: isOpen ? 1 : 0 }}
-                exit={{ opacity: 1 }}
+                initial={{ opacity: 0, visibility: "hidden" }}
+                animate={{
+                  opacity: isOpen ? 1 : 0,
+                  visibility: isOpen ? "visible" : "hidden",
+                }}
+                exit={{ opacity: 1, visibility: "visible" }}
                 transition={{ delay: isOpen ? 1 + 0.3 : 0 }}
               >
-                <button className="text-2xl sm:text-6xl font-fira font-bold tracking-wider text-offWhite mb-6 hover:text-brown transition-all">
+                <button className="text-2xl sm:text-6xl font-fira font-bold tracking-wider text-offWhite mb-6 hover:opacity-50 transition-all">
                   {serviceLink.text}
                 </button>
                 {serviceLinks.map((link: any, i) => (
                   <button
                     key={link._id}
-                    className="text-sm block font-fira font-light tracking-wider text-offWhite mb-2 hover:text-brown transition-all"
+                    className="text-sm block font-fira font-light tracking-wider text-offWhite mb-2 hover:opacity-50 transition-all"
                     onClick={() => {
                       router.push(`/services#${link.slug.current}`);
                       setIsOpen(false);
@@ -209,21 +217,8 @@ const Nav = () => {
             </div>
           </div>
           <div className="hidden lg:flex col-span-1 row-span-1 bg-sage items-center justify-center space-x-20 text-4xl text-offWhite">
-            {websiteSettings?.pinterest && (
-              <div className="hover:text-brown transition-all">
-                <Link
-                  href={websiteSettings.pinterest}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <a title="Pinterest">
-                    <BsPinterest />
-                  </a>
-                </Link>
-              </div>
-            )}
             {websiteSettings?.instagram && (
-              <div className="hover:text-brown transition-all">
+              <div className="hover:opacity-50 transition-all">
                 <Link
                   href={websiteSettings.instagram}
                   rel="noopener noreferrer"
@@ -236,7 +231,7 @@ const Nav = () => {
               </div>
             )}
             {websiteSettings?.tiktok && (
-              <div className="hover:text-brown transition-all">
+              <div className="hover:opacity-50 transition-all">
                 <Link
                   href={websiteSettings.tiktok}
                   rel="noopener noreferrer"
@@ -244,6 +239,19 @@ const Nav = () => {
                 >
                   <a title="TikTok">
                     <FaTiktok />
+                  </a>
+                </Link>
+              </div>
+            )}
+            {websiteSettings?.pinterest && (
+              <div className="hover:opacity-50 transition-all">
+                <Link
+                  href={websiteSettings.pinterest}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <a title="Pinterest">
+                    <BsPinterest />
                   </a>
                 </Link>
               </div>

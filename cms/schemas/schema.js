@@ -11,6 +11,7 @@ import testimonial from "./testimonial";
 import galleries from "./galleries";
 import services from "./services";
 import gallery from "./gallery";
+import contact from "./contact";
 import websiteSettings from "./website-settings";
 import twoImageGalleryBlock from "./two-image-gallery-block";
 import threeImageGalleryBlock from "./three-image-gallery-block";
@@ -28,6 +29,7 @@ export default createSchema({
     home,
     about,
     gallery,
+    contact,
     galleries,
     testimonial,
     twoImageGalleryBlock,

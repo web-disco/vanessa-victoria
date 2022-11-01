@@ -3,15 +3,16 @@ import dynamic from "next/dynamic";
 import slufify from "slugify";
 
 import client from "../client";
-import CallToAction from "../components/call-to-action";
 
-import { AboutPageFetchProps } from "../interfaces/AboutPageFetchProps";
 import { AboutPageProps } from "../interfaces/AboutPageProps";
-import { aboutPageQuery } from "../utils/aboutPageQuery";
+import { aboutPageQuery } from "../utils/queries";
 
 const PageBanner = dynamic(() => import("../components/global/page-banner"));
 const TextBlockWithImage = dynamic(
   () => import("../components/global/text-block-with-image")
+);
+const CallToAction = dynamic(
+  () => import("../components/global/call-to-action")
 );
 
 const About = ({ page }: AboutPageProps) => {
@@ -62,6 +63,5 @@ export const getServerSideProps: GetServerSideProps = async () => {
     props: {
       page,
     },
-    revalidate: 10,
   };
 };

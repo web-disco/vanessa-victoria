@@ -16,7 +16,7 @@ const Intro = ({ title, subtitle, description }: IntroProps) => {
           {description}
         </p>
         <Link href="/about">
-          <a className="font-fira font-light tracking-wide inline-block bg-sage rounded-md py-3 px-8 text-offWhite border border-sage transition-all hover:bg-transparent hover:text-sage">
+          <a className="font-fira font-light tracking-wide inline-block bg-sage py-3 px-8 text-offWhite border border-sage transition-all hover:bg-transparent hover:text-sage">
             Discover More
           </a>
         </Link>

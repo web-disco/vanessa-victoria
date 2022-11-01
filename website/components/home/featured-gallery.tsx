@@ -14,7 +14,7 @@ const FeaturedGallery = ({ gallery }: any) => {
         </h3>
         <Link href={`/galleries/${gallery.slug.current}`}>
           <a
-            className="font-fira font-light tracking-wide inline-block bg-sage rounded-md py-3 px-8 mt-8 text-offWhite border border-sage transition-all hover:bg-transparent hover:text-sage"
+            className="font-fira font-light tracking-wide inline-block bg-sage py-3 px-8 mt-8 text-offWhite border border-sage transition-all hover:bg-transparent hover:text-sage"
             title="View Gallery"
           >
             View Gallery

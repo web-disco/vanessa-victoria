@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import client from "../client";
 
 import { HomePageProps } from "../interfaces/HomePageProps";
-import { homePageQuery } from "../utils/homePageQuery";
+import { homePageQuery } from "../utils/queries";
 
 const Slider = dynamic(() => import("../components/home/slider"));
 const Intro = dynamic(() => import("../components/home/intro"));
@@ -50,7 +50,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     `*[_type == "galleries" && _id == $ref] {
     ...
     }`,
-    { ref: page.featuredGallery._ref }
+    { ref: page.featuredGallery?._ref }
   );
 
   page.featuredGallery = featuredGallery[0];
