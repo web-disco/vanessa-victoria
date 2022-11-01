@@ -102,7 +102,7 @@ const Footer = () => {
           >
             {servicesLinks &&
               servicesLinks.map((link: any) => (
-                <li className="hover:text-brown transition-all" key={link.key}>
+                <li className="hover:text-brown transition-all" key={link._id}>
                   <Link href={`/services#${link.slug.current}`}>
                     <a title={link.title}>{link.serviceTitle}</a>
                   </Link>
