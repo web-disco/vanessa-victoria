@@ -16,20 +16,21 @@ const Contact = ({ page }: ContactPageProps) => {
   return (
     <>
       <PageBanner type="Contact Us" />
+
       <div className="max-w-[800px] mx-auto my-20 px-[25px]">
-        <div className="text-center my-20 leading-[28px] font-fira font-light">
-          <PortableText value={page.blurb} />
-        </div>
-        <div className="mb-20 font-fira font-light">
-          <ContactForm />
-        </div>
         <Image
           src={urlFor(page.image).width(800).height(400).quality(100).url()}
           alt="Contact Us"
           width={800}
           height={400}
-          className="mb-20"
+          className="mb-10"
         />
+        <div className="text-center mt-10 mb-20 leading-[28px] font-fira font-light">
+          <PortableText value={page.blurb} />
+        </div>
+        <div className="mb-20 font-fira font-light">
+          <ContactForm />
+        </div>
       </div>
     </>
   );
