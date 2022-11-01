@@ -31,13 +31,9 @@ const ContactForm = () => {
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values, { setSubmitting }) => {
-        console.log(values);
-        console.log(setSubmitting);
-      }}
+      onSubmit={(values, { setSubmitting }) => {}}
     >
       {({ values, handleChange, handleBlur, handleSubmit, errors }) => {
-        console.log(values);
         return (
           <Form className="grid grid-cols-2 gap-8">
             <div className="col-span-2 md:col-span-1">
