@@ -25,7 +25,7 @@ const Slider = ({ slider }: SliderProps) => {
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
             }}
-            className="h-[600px] lg:h-screen"
+            className="h-[600px] lg:h-[90vh]"
           />
           <div className="hidden lg:block absolute z-[10] bottom-4 right-10">
             <div

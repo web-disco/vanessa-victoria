@@ -125,7 +125,38 @@ const SingleGallery = ({ gallery }: any) => {
         }
       }
       case "fourImageGalleryBlock": {
-        return <></>;
+        return (
+          <>
+            <div
+              style={{
+                backgroundImage: `url(${urlFor(block.image1).url()})`,
+              }}
+              className="w-full h-[200px] sm:h-[350px] md:h-[400px] lg:h-[500px] bg-cover bg-center cursor-pointer transition-all"
+              onClick={() => setSrcAndOpen(urlFor(block.image1).url())}
+            />
+            <div
+              style={{
+                backgroundImage: `url(${urlFor(block.image2).url()})`,
+              }}
+              className="w-full h-[200px] sm:h-[350px] md:h-[400px] lg:h-[500px] bg-cover bg-center cursor-pointer transition-all"
+              onClick={() => setSrcAndOpen(urlFor(block.image2).url())}
+            />
+            <div
+              style={{
+                backgroundImage: `url(${urlFor(block.image3).url()})`,
+              }}
+              className="w-full h-[200px] sm:h-[350px] md:h-[400px] lg:h-[500px] bg-cover bg-center cursor-pointer transition-all"
+              onClick={() => setSrcAndOpen(urlFor(block.image3).url())}
+            />
+            <div
+              style={{
+                backgroundImage: `url(${urlFor(block.image4).url()})`,
+              }}
+              className="w-full h-[200px] sm:h-[350px] md:h-[400px] lg:h-[500px] bg-cover bg-center cursor-pointer transition-all"
+              onClick={() => setSrcAndOpen(urlFor(block.image4).url())}
+            />
+          </>
+        );
       }
     }
   };
@@ -138,7 +169,11 @@ const SingleGallery = ({ gallery }: any) => {
             renderImageBlock(block, index)
           )}
         </div>
-        <p>Credits: {gallery.credits}</p>
+        {gallery.credits && (
+          <p className="mb-8 font-light italic text-center">
+            Credits: {gallery.credits}
+          </p>
+        )}
         {isOpen && (
           <Lightbox mainSrc={src} onCloseRequest={() => setIsOpen(false)} />
         )}
