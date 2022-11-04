@@ -1,3 +1,4 @@
+import Image from "next/future/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { BsInstagram, BsPinterest } from "react-icons/bs";
@@ -26,7 +27,7 @@ const Footer = () => {
 
   return (
     <footer className="container border-t border-sage">
-      <div className="flex justify-between py-10 font-light">
+      <div className="flex justify-between py-10 font-light sm:min-h-[220px]">
         <div>
           <ul className="font-fia text-[14px] space-y-2">
             <li className="hover:text-brown transition-all">
@@ -111,7 +112,7 @@ const Footer = () => {
               ))}
           </ul>
         </div>
-        <div className="hidden sm:block">
+        <div className="hidden sm:flex flex-col">
           <ul className="font-fia flex space-x-4 text-[20px]">
             {websiteSettings?.instagram && (
               <li className="text-black hover:text-brown transition-all">
@@ -149,7 +150,31 @@ const Footer = () => {
               </li>
             )}
           </ul>
+          <a
+            href="https://wpic.ca/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pt-6"
+          >
+            <Image
+              src="/assets/footer-pin.png"
+              width={90}
+              height={90}
+              alt="WPIOC"
+            />
+          </a>
         </div>
+      </div>
+      <div className="block sm:hidden text-center pb-10">
+        <a href="https://wpic.ca/" target="_blank" rel="noopener noreferrer">
+          <Image
+            src="/assets/footer-pin.png"
+            width={100}
+            height={100}
+            alt="WPIOC"
+            className="mx-auto"
+          />
+        </a>
       </div>
       <div className="sm:flex text-center sm:text-left justify-between text-[12px] mb-5">
         <p className="mb-4 sm:mb-0">
