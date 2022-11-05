@@ -41,14 +41,14 @@ const ContactForm = () => {
     //         data-netlify={true}
     //       >
     //         <div className="col-span-2 md:col-span-1">
-    //           <input
-    //             type="text"
-    //             name="firstName"
-    //             placeholder="First Name *"
-    //             value={values.firstName}
-    //             onChange={handleChange}
-    //             className="w-full h-[40px] pb-2 bg-transparent border-b  border-sage text-brown placeholder-brown outline-none"
-    //           />
+    // <input
+    //   type="text"
+    //   name="firstName"
+    //   placeholder="First Name *"
+    //   value={values.firstName}
+    //   onChange={handleChange}
+    //   className="w-full h-[40px] pb-2 bg-transparent border-b  border-sage text-brown placeholder-brown outline-none"
+    // />
     //           {errors.firstName && (
     //             <p className="text-red-500 text-[14px] mt-2">
     //               {errors.firstName}
@@ -189,8 +189,21 @@ const ContactForm = () => {
     //     );
     //   }}
     // </Formik>
-    <form name="Contact Form" data-netlify="true">
-      <input type="text" id="firstname" placeholder="First Name" />
+    <form
+      name="contact"
+      method="post"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      className="grid grid-cols-2 gap-8"
+    >
+      <input type="hidden" name="Contact Form" value="contact" />
+      <input
+        type="text"
+        name="firstName"
+        placeholder="First Name *"
+        className="w-full h-[40px] pb-2 bg-transparent border-b  border-sage text-brown placeholder-brown outline-none"
+        required
+      />
     </form>
   );
 };
