@@ -29,7 +29,23 @@ const Contact = ({ page }: ContactPageProps) => {
           <PortableText value={page.blurb} />
         </div>
         <div className="mb-20 font-fira font-light">
-          <ContactForm />
+          {/* <ContactForm /> */}
+          <form name="contact" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact" />
+            <p>
+              <label>
+                Name <input type="text" name="name" />
+              </label>
+            </p>
+            <p>
+              <label>
+                Email <input type="email" name="email" />
+              </label>
+            </p>
+            <p>
+              <button type="submit">Send</button>
+            </p>
+          </form>
         </div>
       </div>
     </>
