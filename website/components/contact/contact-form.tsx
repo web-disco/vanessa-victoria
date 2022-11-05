@@ -35,7 +35,11 @@ const ContactForm = () => {
     >
       {({ values, handleChange, handleBlur, handleSubmit, errors }) => {
         return (
-          <Form className="grid grid-cols-2 gap-8" data-netlify={true}>
+          <Form
+            className="grid grid-cols-2 gap-8"
+            name="Contact Form"
+            data-netlify={true}
+          >
             <div className="col-span-2 md:col-span-1">
               <input
                 type="text"
