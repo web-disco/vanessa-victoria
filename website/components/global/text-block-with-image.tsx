@@ -32,7 +32,7 @@ const TextBlockWithImage = ({
           />
         </div>
         <div className="w-full flex flex-col justify-center">
-          <h2 className="font-tangerine text-5xl lg:text-4xl mb-4 text-brown">
+          <h2 className="font-tangerine text-4xl lg:text-5xl mb-4 text-brown">
             {title}
           </h2>
           <div className="font-fira font-light leading-7 prose">
@@ -55,7 +55,7 @@ const TextBlockWithImage = ({
         id={id}
       >
         <div className="w-full  flex flex-col justify-center">
-          <h2 className="font-tangerine text-5xl lg:text-4xl mb-4 text-brown">
+          <h2 className="font-tangerine text-4xl lg:text-5xl mb-4 text-brown">
             {title}
           </h2>
           <div className="font-fira font-light leading-7 prose">

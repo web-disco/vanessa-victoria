@@ -34,7 +34,7 @@ const Slider = ({ slider }: SliderProps) => {
             />
             <p className="text-white font-fira font-light">Scroll</p>
           </div>
-          <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-30" />
+          {/* <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-30" /> */}
         </SwiperSlide>
       ))}
     </Swiper>

@@ -18,6 +18,7 @@ const Nav = () => {
   const [websiteSettings, setWebsiteSettings] =
     useState<WebsiteSettingsProps>();
   const [serviceLinks, setServicesLinks] = useState([]);
+  const [openServiceDropdown, setOpenServiceDropdown] = useState(false);
 
   const [links, setLinks] = useState([
     {
@@ -33,12 +34,12 @@ const Nav = () => {
       link: "/galleries",
     },
     {
-      text: "Contact",
-      link: "/contact",
-    },
-    {
       text: "Services",
       link: "/services",
+    },
+    {
+      text: "Contact",
+      link: "/contact",
     },
   ]);
 
@@ -104,7 +105,6 @@ const Nav = () => {
           </div>
         </div>
       </nav>
-
       <motion.div
         key="nav-bg"
         className="fixed inset-0 bg-menuBrown z-30"
@@ -127,7 +127,7 @@ const Nav = () => {
           transition={{ delay: isOpen ? 0.5 : 0 }}
           className="w-full h-full grid grid-cols-2 grid-rows-6"
         >
-          <div className="bg-menuBrown col-span-2 lg:col-span-1 row-span-6 flex flex-col justify-center">
+          <div className="bg-menuBrown col-span-2 lg:col-span-1 row-span-6">
             <div className="absolute right-4 top-4 z-[1]">
               <button
                 onClick={() => setIsOpen(false)}
@@ -136,7 +136,129 @@ const Nav = () => {
                 <AiOutlineClose />
               </button>
             </div>
-            <div className="flex items-start justify-center space-x-8 px-4 sm:px-8">
+            <div className="flex justify-center items-center h-full">
+              <motion.ul
+                key="nav"
+                className="flex flex-col space-y-4"
+                initial={{ visibility: "hidden" }}
+                animate={{
+                  visibility: isOpen ? "visible" : "hidden",
+                }}
+                exit={{ display: "none" }}
+              >
+                {links.map((link, i) => {
+                  if (link.text === "Services") {
+                    return (
+                      <>
+                        <motion.li
+                          key={`nav-link-${i}`}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: isOpen ? 1 : 0 }}
+                          exit={{ opacity: 1 }}
+                          transition={{ delay: isOpen ? 1 + i * 0.1 : 0 }}
+                          onHoverStart={() => setOpenServiceDropdown(true)}
+                          onHoverEnd={() => setOpenServiceDropdown(false)}
+                          className="hidden md:block"
+                        >
+                          <button
+                            className="text-2xl sm:text-4xl font-fira font-bold tracking-wider text-offWhite hover:opacity-50 transition-all"
+                            onClick={() => {
+                              router.push(link.link);
+                              setIsOpen(false);
+                            }}
+                          >
+                            {link.text}
+                          </button>
+                          <motion.ul
+                            key="service-dropdown"
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{
+                              height: openServiceDropdown ? "auto" : 0,
+                            }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{
+                              delay: openServiceDropdown ? 0 : 0.4,
+                            }}
+                            className="ml-2 space-y-2"
+                            style={{
+                              marginTop: openServiceDropdown ? "10px" : 0,
+                            }}
+                          >
+                            {serviceLinks.map((link: any, i) => (
+                              <motion.li
+                                initial={{ opacity: 0, visibility: "hidden" }}
+                                animate={{
+                                  opacity: openServiceDropdown ? 1 : 0,
+                                  visibility: openServiceDropdown
+                                    ? "visible"
+                                    : "hidden",
+                                }}
+                                exit={{ opacity: 0, visibility: "hidden" }}
+                                transition={{
+                                  delay: openServiceDropdown ? 0.3 : 0,
+                                }}
+                              >
+                                <button
+                                  key={link._id}
+                                  className="text-sm block font-fira font-light tracking-wider text-offWhite  hover:opacity-50 transition-all"
+                                  onClick={() => {
+                                    router.push(
+                                      `/services#${link.slug.current}`
+                                    );
+                                    setIsOpen(false);
+                                  }}
+                                >
+                                  - {link.serviceTitle}
+                                </button>
+                              </motion.li>
+                            ))}
+                          </motion.ul>
+                        </motion.li>
+                        <motion.li
+                          key={`nav-link-${i}`}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: isOpen ? 1 : 0 }}
+                          exit={{ opacity: 1 }}
+                          transition={{ delay: isOpen ? 1 + i * 0.1 : 0 }}
+                          className="block md:hidden"
+                        >
+                          <button
+                            className="text-2xl sm:text-4xl font-fira font-bold tracking-wider text-offWhite hover:opacity-50 transition-all"
+                            onClick={() => {
+                              router.push(link.link);
+                              setIsOpen(false);
+                            }}
+                          >
+                            {link.text}
+                          </button>
+                        </motion.li>
+                      </>
+                    );
+                  }
+                  return (
+                    <motion.li
+                      key={`nav-link-${i}`}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: isOpen ? 1 : 0 }}
+                      exit={{ opacity: 1 }}
+                      transition={{ delay: isOpen ? 1 + i * 0.1 : 0 }}
+                      className="inline"
+                    >
+                      <button
+                        className="text-2xl sm:text-4xl font-fira font-bold tracking-wider text-offWhite hover:opacity-50 transition-all"
+                        onClick={() => {
+                          router.push(link.link);
+                          setIsOpen(false);
+                        }}
+                      >
+                        {link.text}
+                      </button>
+                    </motion.li>
+                  );
+                })}
+              </motion.ul>
+            </div>
+            {/* <div className=" space-x-6 px-4 sm:px-8">
               <motion.ul
                 key="nav"
                 className=""
@@ -146,9 +268,64 @@ const Nav = () => {
                 }}
                 exit={{ display: "none" }}
               >
-                {links
-                  .filter((l) => l.text !== "Services")
-                  .map((link, i) => (
+                {links.map((link, i) => {
+                  if (link.text === "Services") {
+                    return (
+                      <motion.li
+                        key={`nav-link-${i}`}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: isOpen ? 1 : 0 }}
+                        exit={{ opacity: 1 }}
+                        transition={{ delay: isOpen ? 1 + i * 0.1 : 0 }}
+                        onHoverStart={() => setOpenServiceDropdown(true)}
+                        onHoverEnd={() => setOpenServiceDropdown(false)}
+                      >
+                        <button
+                          className="text-2xl sm:text-4xl font-fira font-bold tracking-wider text-offWhite over:opacity-50 transition-all"
+                          onClick={() => {
+                            router.push(link.link);
+                            setIsOpen(false);
+                          }}
+                        >
+                          {link.text}
+                        </button>
+                        <motion.ul
+                          key="service-dropdown"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{
+                            height: openServiceDropdown ? "auto" : 0,
+                          }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ delay: openServiceDropdown ? 0 : 0.4 }}
+                        >
+                          {serviceLinks.map((link: any, i) => (
+                            <motion.li
+                              initial={{ opacity: 0 }}
+                              animate={{
+                                opacity: openServiceDropdown ? 1 : 0,
+                              }}
+                              exit={{ opacity: 0 }}
+                              transition={{
+                                delay: openServiceDropdown ? 0.3 : 0,
+                              }}
+                            >
+                              <button
+                                key={link._id}
+                                className="text-sm block font-fira font-light tracking-wider text-offWhite mb-2 hover:opacity-50 transition-all"
+                                onClick={() => {
+                                  router.push(`/services#${link.slug.current}`);
+                                  setIsOpen(false);
+                                }}
+                              >
+                                {link.serviceTitle}
+                              </button>
+                            </motion.li>
+                          ))}
+                        </motion.ul>
+                      </motion.li>
+                    );
+                  }
+                  return (
                     <motion.li
                       key={`nav-link-${i}`}
                       initial={{ opacity: 0 }}
@@ -157,7 +334,7 @@ const Nav = () => {
                       transition={{ delay: isOpen ? 1 + i * 0.1 : 0 }}
                     >
                       <button
-                        className="text-2xl sm:text-6xl font-fira font-bold tracking-wider text-offWhite mb-6  sm:mb-14 hover:opacity-50 transition-all"
+                        className="text-2xl sm:text-4xl font-fira font-bold tracking-wider text-offWhite mb-6  sm:mb-6 hover:opacity-50 transition-all"
                         onClick={() => {
                           router.push(link.link);
                           setIsOpen(false);
@@ -166,7 +343,27 @@ const Nav = () => {
                         {link.text}
                       </button>
                     </motion.li>
-                  ))}
+                  );
+                })}
+                {links.map((link, i) => (
+                  <motion.li
+                    key={`nav-link-${i}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: isOpen ? 1 : 0 }}
+                    exit={{ opacity: 1 }}
+                    transition={{ delay: isOpen ? 1 + i * 0.1 : 0 }}
+                  >
+                    <button
+                      className="text-2xl sm:text-4xl font-fira font-bold tracking-wider text-offWhite mb-6  sm:mb-6 hover:opacity-50 transition-all"
+                      onClick={() => {
+                        router.push(link.link);
+                        setIsOpen(false);
+                      }}
+                    >
+                      {link.text}
+                    </button>
+                  </motion.li>
+                ))}
               </motion.ul>
               <motion.div
                 key="button"
@@ -194,7 +391,7 @@ const Nav = () => {
                   </button>
                 ))}
               </motion.div>
-            </div>
+            </div> */}
           </div>
           <div className="hidden lg:block col-span-1 row-span-5 relative">
             <div
