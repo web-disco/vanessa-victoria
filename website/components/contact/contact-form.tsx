@@ -190,13 +190,13 @@ const ContactForm = () => {
     //   }}
     // </Formik>
     <form
-      name="contact"
-      method="post"
+      name="Contact"
+      method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       className="grid grid-cols-2 gap-8"
     >
-      <input type="hidden" name="Contact Form" value="contact" />
+      <input type="hidden" name="form-name" value="Contact" />
       <input
         type="text"
         name="firstName"
@@ -204,6 +204,7 @@ const ContactForm = () => {
         className="w-full h-[40px] pb-2 bg-transparent border-b  border-sage text-brown placeholder-brown outline-none"
         required
       />
+      <button type="submit">Submit</button>
     </form>
   );
 };
