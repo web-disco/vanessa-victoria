@@ -190,6 +190,7 @@ const ContactForm = () => {
     //   }}
     // </Formik>
     <form name="contact" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact" />
       <p>
         <label>
           Name <input type="text" name="name" />
