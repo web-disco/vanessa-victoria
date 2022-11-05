@@ -178,7 +178,7 @@ const Footer = () => {
       </div>
       <div className="sm:flex text-center sm:text-left justify-between text-[12px] mb-5">
         <p className="mb-4 sm:mb-0">
-          © {year} Copyright Vanessa Victoria Weddings & Events.
+          © {year} Copyright Vanessa Victoria Weddings & Events Inc.
         </p>
         <p>
           Website by{" "}

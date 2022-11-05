@@ -7,11 +7,12 @@ import client from "../../client";
 import { GalleriesPageProps } from "../../interfaces/GalleriesPageProps";
 import { urlFor } from "../../utils/image-helper";
 import { getVideo } from "../../utils/getVideo";
+import CallToAction from "../../components/global/call-to-action";
 
 const Galleries: NextPage<GalleriesPageProps> = ({ galleries, gallery }) => {
   return (
     <div>
-      <div className="h-screen w-full">
+      <div className="h-[90vh] w-full">
         <video
           src={getVideo(gallery.video.asset._ref)}
           autoPlay
@@ -20,6 +21,7 @@ const Galleries: NextPage<GalleriesPageProps> = ({ galleries, gallery }) => {
           className="w-full h-full inset-0 object-cover"
         />
       </div>
+      <div className="w-[1px] h-[80px] mx-auto bg-brown" />
       <div className="container grid md:grid-cols-2 gap-8 my-8">
         {galleries.map((gallery) => (
           <div className="relative group" key={gallery._id}>
@@ -41,6 +43,7 @@ const Galleries: NextPage<GalleriesPageProps> = ({ galleries, gallery }) => {
           </div>
         ))}
       </div>
+      <CallToAction link="/contact" linkText="Let's Connect!" />
     </div>
   );
 };

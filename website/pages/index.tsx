@@ -2,6 +2,7 @@ import type { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 
 import client from "../client";
+import CallToAction from "../components/global/call-to-action";
 
 import { HomePageProps } from "../interfaces/HomePageProps";
 import { homePageQuery } from "../utils/queries";
@@ -37,6 +38,11 @@ const Home = ({ page }: HomePageProps) => {
         testimonials={testimonials}
       />
       <FeaturedGallery gallery={featuredGallery} />
+      <CallToAction
+        title="Let's create the most memorable event together"
+        link="/contact"
+        linkText="Let's Connect!"
+      />
     </>
   );
 };

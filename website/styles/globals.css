@@ -8,9 +8,6 @@ body {
   background-color: #E6E4DD;
 }
 
-/* html {
-  scroll-behavior: smooth;
-} */
 
 .container {
   max-width: 1200px;
@@ -53,6 +50,7 @@ body {
 }
 
 .sticky-nav {
-  backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: blur(15px);
   transition: background-color 0.1 ease-in-out;
+  position: fixed
 }

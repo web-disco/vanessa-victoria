@@ -19,7 +19,7 @@ const TextBlockWithImage = ({
   if (imgPosition === "left") {
     return (
       <div
-        className="container lg:text-left flex flex-col lg:flex-row justify-between h-full my-40 lg:space-x-20"
+        className="container lg:text-left flex flex-col lg:flex-row justify-between h-full mb-40 lg:space-x-20"
         id={id}
       >
         <div className="relative w-full h-full mb-8 lg:mb-0">
@@ -51,7 +51,7 @@ const TextBlockWithImage = ({
   } else {
     return (
       <div
-        className="container lg:text-left flex flex-col-reverse lg:flex-row justify-between h-full my-40 lg:space-x-20"
+        className="container lg:text-left flex flex-col-reverse lg:flex-row justify-between h-full mb-40 lg:space-x-20"
         id={id}
       >
         <div className="w-full  flex flex-col justify-center">

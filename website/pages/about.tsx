@@ -45,7 +45,7 @@ const About = ({ page }: AboutPageProps) => {
         description={vanessaDescription}
         image={vanessaImage}
         link="/contact"
-        linkText="Contact Us"
+        linkText="Lets Connect!"
         imgPosition="left"
         id={vanessaId}
       />
