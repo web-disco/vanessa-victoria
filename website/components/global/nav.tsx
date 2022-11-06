@@ -69,7 +69,7 @@ const Nav = () => {
   useEffect(() => {
     const nav = document.querySelector("nav") as HTMLElement;
     window.addEventListener("scroll", (e: any) => {
-      if (scrollY > 500) {
+      if (scrollY > 0) {
         nav.classList.add("sticky-nav");
       } else {
         nav.classList.remove("sticky-nav");
