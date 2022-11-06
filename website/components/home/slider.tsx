@@ -12,7 +12,7 @@ const Slider = ({ slider }: SliderProps) => {
       loop
       effect="fade"
       autoplay={{
-        delay: 4500,
+        delay: 5500,
       }}
     >
       {slider.map((slide, index) => (
@@ -34,7 +34,6 @@ const Slider = ({ slider }: SliderProps) => {
             />
             <p className="text-white font-fira font-light">Scroll</p>
           </div>
-          {/* <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-30" /> */}
         </SwiperSlide>
       ))}
     </Swiper>

@@ -22,7 +22,9 @@ const Galleries: NextPage<GalleriesPageProps> = ({ galleries, gallery }) => {
           className="w-full md:h-full inset-0 object-center md:object-cover"
         />
       </div>
-      <div className="w-[1px] h-[80px] mx-auto bg-brown" />
+      <h2 className="font-tangerine text-6xl text-brown my-12 text-center">
+        Gallery
+      </h2>
       <div className="container grid md:grid-cols-2 gap-8 my-8">
         {galleries.map((gallery) => (
           <div className="relative group" key={gallery._id}>

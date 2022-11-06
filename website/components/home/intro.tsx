@@ -5,7 +5,6 @@ import { IntroProps } from "../../interfaces/IntroProps";
 const Intro = ({ title, subtitle, description }: IntroProps) => {
   return (
     <div className="text-center px-[25px]">
-      <div className="w-[1px] h-[80px] mx-auto bg-brown" />
       <div className="my-12">
         <h2 className="font-tangerine text-6xl mb-4 text-brown">{title}</h2>
         <p className="font-fira font-light text-md md:text-lg text-sage max-w-[250px] mx-auto md:max-w-max">
