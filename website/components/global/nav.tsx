@@ -139,7 +139,7 @@ const Nav = () => {
             <div className="flex justify-center items-center h-full">
               <motion.ul
                 key="nav"
-                className="flex flex-col space-y-4"
+                className="flex flex-col space-y-4 text-center"
                 initial={{ visibility: "hidden" }}
                 animate={{
                   visibility: isOpen ? "visible" : "hidden",
