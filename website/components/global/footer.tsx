@@ -102,7 +102,7 @@ const Footer = () => {
               columnGap: "2rem",
             }}
           >
-            {servicesLinks.length &&
+            {servicesLinks.length > 0 &&
               servicesLinks.map((link: any) => (
                 <li className="hover:text-brown transition-all" key={link._id}>
                   <Link href={`/services#${link.slug.current}`}>
