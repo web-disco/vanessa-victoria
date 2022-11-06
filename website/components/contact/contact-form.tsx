@@ -2,7 +2,7 @@ const ContactForm = () => {
   return (
     <form
       name="contact"
-      action="/success"
+      action="/contact?success=true"
       method="POST"
       data-netlify="true"
       className="grid grid-cols-2 gap-8"

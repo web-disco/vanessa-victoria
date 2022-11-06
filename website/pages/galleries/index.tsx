@@ -18,6 +18,7 @@ const Galleries: NextPage<GalleriesPageProps> = ({ galleries, gallery }) => {
           autoPlay
           loop
           muted
+          playsInline
           className="w-full h-full inset-0 object-cover"
         />
       </div>

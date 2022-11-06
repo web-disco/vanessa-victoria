@@ -25,8 +25,6 @@ const Footer = () => {
     init();
   }, []);
 
-  console.log(servicesLinks);
-
   return (
     <footer className="container border-t border-sage">
       <div className="flex justify-between py-10 font-light sm:min-h-[220px]">

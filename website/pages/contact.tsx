@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 import Image from "next/future/image";
 import { PortableText } from "@portabletext/react";
 
@@ -12,6 +13,8 @@ const PageBanner = dynamic(() => import("../components/global/page-banner"));
 const ContactForm = dynamic(() => import("../components/contact/contact-form"));
 
 const Contact = () => {
+  const router = useRouter();
+
   const [contactPage, setContactPage] = useState<any>();
 
   useEffect(() => {
@@ -21,6 +24,8 @@ const Contact = () => {
     };
     init();
   }, []);
+
+  const success = router.query.success === "true";
 
   return (
     <>
@@ -45,7 +50,16 @@ const Contact = () => {
           </>
         )}
         <div className="mb-20 font-fira font-light">
-          <ContactForm />
+          {!success ? (
+            <ContactForm />
+          ) : (
+            <div className="text-center">
+              <h3 className="font-tangerine text-4xl text-brown mb-2">
+                Thank You
+              </h3>
+              <p>We will get back to you within 48 hours.</p>
+            </div>
+          )}
         </div>
       </div>
     </>

@@ -1,6 +1,6 @@
 export default {
   name: "contact",
-  title: "Contact",
+  title: "Contact Page",
   type: "document",
   ___experimental_actions: ["update", "publish"],
   fields: [
