@@ -79,7 +79,7 @@ const Nav = () => {
 
   return (
     <AnimatePresence initial={false}>
-      <nav className="w-full z-20 text-brown px-[25px] py-2">
+      <nav className="w-full z-20 text-brown px-[25px] py-2 sticky top-0">
         <div className="flex justify-between items-center w-full">
           <Link href="/">
             <a title="Home">
