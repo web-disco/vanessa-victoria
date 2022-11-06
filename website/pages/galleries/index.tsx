@@ -12,14 +12,14 @@ import CallToAction from "../../components/global/call-to-action";
 const Galleries: NextPage<GalleriesPageProps> = ({ galleries, gallery }) => {
   return (
     <div>
-      <div className="h-[90vh] w-full">
+      <div className="h-auto lg:h-[90vh] w-full">
         <video
           src={getVideo(gallery.video.asset._ref)}
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full inset-0 object-cover"
+          className="w-full md:h-full inset-0 object-center md:object-cover"
         />
       </div>
       <div className="w-[1px] h-[80px] mx-auto bg-brown" />

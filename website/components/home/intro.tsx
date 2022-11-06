@@ -8,7 +8,7 @@ const Intro = ({ title, subtitle, description }: IntroProps) => {
       <div className="w-[1px] h-[80px] mx-auto bg-brown" />
       <div className="my-12">
         <h2 className="font-tangerine text-6xl mb-4 text-brown">{title}</h2>
-        <p className="font-fira font-light text-md md:text-lg text-sage">
+        <p className="font-fira font-light text-md md:text-lg text-sage max-w-[250px] mx-auto md:max-w-max">
           {subtitle}
         </p>
         <div className="w-[40px] h-[1px] mx-auto bg-brown mt-4" />

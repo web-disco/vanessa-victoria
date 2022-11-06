@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { GetStaticPaths, GetStaticProps, GetServerSideProps } from "next";
+import { useEffect, useState } from "react";
+import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
-import Image from "next/future/image";
-import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css";
+
+import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
+import { VscChromeClose } from "react-icons/vsc";
 
 import { urlFor } from "../../utils/image-helper";
 
@@ -14,11 +14,42 @@ const PageBanner = dynamic(() => import("../../components/global/page-banner"));
 const SingleGallery = ({ gallery }: any) => {
   const [isOpen, setIsOpen] = useState(false);
   const [src, setSrc] = useState("");
+  const [images, setImages] = useState<any>([]);
+  const [photoIndex, setPhotoIndex] = useState(0);
 
-  const renderImageBlock = (block: any, index: number) => {
+  useEffect(() => {
+    const images = [] as any;
+    gallery.imageBlocks.forEach((block: any) => {
+      if (block.image1) {
+        images.push(urlFor(block.image1).url());
+      }
+      if (block.image2) {
+        images.push(urlFor(block.image2).url());
+      }
+      if (block.image3) {
+        images.push(urlFor(block.image3).url());
+      }
+      if (block.image4) {
+        images.push(urlFor(block.image4).url());
+      }
+      setImages(images);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isOpen]);
+
+  const renderImageBlock = (block: any) => {
     const setSrcAndOpen = (src: string) => {
       setSrc(src);
       setIsOpen(true);
+      const index = images.findIndex((image: string) => image === src);
+      setPhotoIndex(index);
     };
     switch (block._type) {
       case "twoImageGalleryBlock": {
@@ -166,7 +197,7 @@ const SingleGallery = ({ gallery }: any) => {
       <div className="container">
         <div className="grid grid-cols-2 gap-4 lg:gap-8 my-8">
           {gallery?.imageBlocks?.map((block: any, index: number) =>
-            renderImageBlock(block, index)
+            renderImageBlock(block)
           )}
         </div>
         {gallery.credits && (
@@ -175,7 +206,55 @@ const SingleGallery = ({ gallery }: any) => {
           </p>
         )}
         {isOpen && (
-          <Lightbox mainSrc={src} onCloseRequest={() => setIsOpen(false)} />
+          <div
+            className="fixed w-full h-screen inset-0 flex justify-center items-center"
+            style={{
+              backgroundColor: "rgba(0,0,0,0.88)",
+            }}
+          >
+            <button
+              className="absolute top-4 right-7"
+              onClick={() => setIsOpen(false)}
+            >
+              <VscChromeClose className="text-white text-2xl" />
+            </button>
+            <div className="flex items-center text-white">
+              {photoIndex > 0 && (
+                <button
+                  className="mr-8 text-2xl"
+                  onClick={() => {
+                    setPhotoIndex(photoIndex - 1);
+                  }}
+                >
+                  <BsChevronLeft />
+                </button>
+              )}
+              <div>
+                <img
+                  src={images[photoIndex]}
+                  width="600"
+                  height="600"
+                  alt="Lightbot Image"
+                />
+                <p className="text-center mt-2 font-fira font-light">
+                  {photoIndex + 1} / {images.length}
+                </p>
+              </div>
+              <button
+                className="ml-8 text-2xl"
+                onClick={() => {
+                  if (photoIndex === images.length - 1) {
+                    setPhotoIndex(0);
+                    console.log("done");
+                  } else {
+                    setPhotoIndex(photoIndex + 1);
+                  }
+                }}
+              >
+                <BsChevronRight />
+              </button>
+            </div>
+          </div>
         )}
       </div>
     </>
