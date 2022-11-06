@@ -207,7 +207,7 @@ const SingleGallery = ({ gallery }: any) => {
         )}
         {isOpen && (
           <div
-            className="fixed w-full h-screen inset-0 flex justify-center items-center"
+            className="fixed w-full h-screen inset-0 flex justify-center items-center z-50"
             style={{
               backgroundColor: "rgba(0,0,0,0.88)",
             }}
