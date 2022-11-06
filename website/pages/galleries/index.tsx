@@ -35,7 +35,7 @@ const Galleries: NextPage<GalleriesPageProps> = ({ galleries, gallery }) => {
             <Link href={`/galleries/${gallery.slug.current}`}>
               <a title={gallery.title}>
                 <div className="cursor-pointer absolute w-full h-full bg-brown inset-0 bg-transparent group-hover:bg-sage z-10 transition-all flex justify-center items-center">
-                  <p className="opacity-0 group-hover:opacity-100 transition-all text-white font-tangerine text-5xl">
+                  <p className="opacity-0 group-hover:opacity-100 transition-all text-white font-tangerine text-5xl text-center">
                     {gallery.title}
                   </p>
                 </div>
