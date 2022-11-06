@@ -12,21 +12,20 @@ import { urlFor } from "../utils/image-helper";
 const PageBanner = dynamic(() => import("../components/global/page-banner"));
 const ContactForm = dynamic(() => import("../components/contact/contact-form"));
 
-const Contact = ({ page }: ContactPageProps) => {
+const Contact = () => {
   return (
     <>
       <PageBanner type="Contact Us" />
-
       <div className="max-w-[800px] mx-auto my-20 px-[25px]">
-        <Image
+        {/* <Image
           src={urlFor(page.image).width(800).height(400).quality(100).url()}
           alt="Contact Us"
           width={800}
           height={400}
           className="mb-10"
-        />
+        /> */}
         <div className="text-center mt-10 mb-20 leading-[28px] font-fira font-light">
-          <PortableText value={page.blurb} />
+          {/* <PortableText value={page.blurb} /> */}
         </div>
         <div className="mb-20 font-fira font-light">
           <ContactForm />
@@ -38,12 +37,12 @@ const Contact = ({ page }: ContactPageProps) => {
 
 export default Contact;
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const page = await client.fetch(contactPageQuery);
+// export const getServerSideProps: GetServerSideProps = async () => {
+//   const page = await client.fetch(contactPageQuery);
 
-  return {
-    props: {
-      page,
-    },
-  };
-};
+//   return {
+//     props: {
+//       page,
+//     },
+//   };
+// };
