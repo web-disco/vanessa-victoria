@@ -102,14 +102,39 @@ const Footer = () => {
               columnGap: "2rem",
             }}
           >
-            {servicesLinks.length &&
+            {/* {servicesLinks.length &&
               servicesLinks.map((link: any) => (
                 <li className="hover:text-brown transition-all" key={link._id}>
                   <Link href={`/services#${link.slug.current}`}>
                     <a title={link.title}>{link.serviceTitle}</a>
                   </Link>
                 </li>
-              ))}
+              ))} */}
+            <li className="hover:text-brown transition-all">
+              <Link href={`/services#full-service-wedding-planning`}>
+                <a>Full-Service Wedding Planning</a>
+              </Link>
+            </li>
+            <li className="hover:text-brown transition-all">
+              <Link href={`/services#day-of-coordination`}>
+                <a>Day-Of-Coordination</a>
+              </Link>
+            </li>
+            <li className="hover:text-brown transition-all">
+              <Link href={`/services#wedding-and-event-design`}>
+                <a>Wedding & Event Design</a>
+              </Link>
+            </li>
+            <li className="hover:text-brown transition-all">
+              <Link href={`/services#event-consulting`}>
+                <a>Event Consulting</a>
+              </Link>
+            </li>
+            <li className="hover:text-brown transition-all">
+              <Link href={`/services#additional-events`}>
+                <a>Additional Events</a>
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="hidden sm:flex flex-col">

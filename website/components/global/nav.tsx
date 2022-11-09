@@ -178,12 +178,12 @@ const Nav = () => {
                             transition={{
                               delay: openServiceDropdown ? 0 : 0.4,
                             }}
-                            className="ml-2 space-y-2"
+                            className="ml-20 space-y-2"
                             style={{
                               marginTop: openServiceDropdown ? "10px" : 0,
                             }}
                           >
-                            {serviceLinks.map((link: any, i) => (
+                            {/* {serviceLinks.map((link: any, i) => (
                               <motion.li
                                 key={link._id}
                                 initial={{ opacity: 0, visibility: "hidden" }}
@@ -210,7 +210,126 @@ const Nav = () => {
                                   - {link.serviceTitle}
                                 </button>
                               </motion.li>
-                            ))}
+                            ))} */}
+                            <motion.li
+                              initial={{ opacity: 0, visibility: "hidden" }}
+                              animate={{
+                                opacity: openServiceDropdown ? 1 : 0,
+                                visibility: openServiceDropdown
+                                  ? "visible"
+                                  : "hidden",
+                              }}
+                              exit={{ opacity: 0, visibility: "hidden" }}
+                              transition={{
+                                delay: openServiceDropdown ? 0.3 : 0,
+                              }}
+                            >
+                              <button
+                                className="text-sm block font-fira font-light tracking-wider text-offWhite  hover:opacity-50 transition-all"
+                                onClick={() => {
+                                  router.push(
+                                    `/services#full-service-wedding-planning`
+                                  );
+                                  setIsOpen(false);
+                                }}
+                              >
+                                - Full-Service Wedding Planning
+                              </button>
+                            </motion.li>
+                            <motion.li
+                              initial={{ opacity: 0, visibility: "hidden" }}
+                              animate={{
+                                opacity: openServiceDropdown ? 1 : 0,
+                                visibility: openServiceDropdown
+                                  ? "visible"
+                                  : "hidden",
+                              }}
+                              exit={{ opacity: 0, visibility: "hidden" }}
+                              transition={{
+                                delay: openServiceDropdown ? 0.3 : 0,
+                              }}
+                            >
+                              <button
+                                className="text-sm block font-fira font-light tracking-wider text-offWhite  hover:opacity-50 transition-all"
+                                onClick={() => {
+                                  router.push(`/services#day-of-coordination`);
+                                  setIsOpen(false);
+                                }}
+                              >
+                                - Day-of-Coordination
+                              </button>
+                            </motion.li>
+                            <motion.li
+                              initial={{ opacity: 0, visibility: "hidden" }}
+                              animate={{
+                                opacity: openServiceDropdown ? 1 : 0,
+                                visibility: openServiceDropdown
+                                  ? "visible"
+                                  : "hidden",
+                              }}
+                              exit={{ opacity: 0, visibility: "hidden" }}
+                              transition={{
+                                delay: openServiceDropdown ? 0.3 : 0,
+                              }}
+                            >
+                              <button
+                                className="text-sm block font-fira font-light tracking-wider text-offWhite  hover:opacity-50 transition-all"
+                                onClick={() => {
+                                  router.push(
+                                    `/services#wedding-and-event-design`
+                                  );
+                                  setIsOpen(false);
+                                }}
+                              >
+                                - Wedding & Event Design
+                              </button>
+                            </motion.li>
+                            <motion.li
+                              initial={{ opacity: 0, visibility: "hidden" }}
+                              animate={{
+                                opacity: openServiceDropdown ? 1 : 0,
+                                visibility: openServiceDropdown
+                                  ? "visible"
+                                  : "hidden",
+                              }}
+                              exit={{ opacity: 0, visibility: "hidden" }}
+                              transition={{
+                                delay: openServiceDropdown ? 0.3 : 0,
+                              }}
+                            >
+                              <button
+                                className="text-sm block font-fira font-light tracking-wider text-offWhite  hover:opacity-50 transition-all"
+                                onClick={() => {
+                                  router.push(`/services#event-consulting`);
+                                  setIsOpen(false);
+                                }}
+                              >
+                                - Event Consulting
+                              </button>
+                            </motion.li>
+                            <motion.li
+                              initial={{ opacity: 0, visibility: "hidden" }}
+                              animate={{
+                                opacity: openServiceDropdown ? 1 : 0,
+                                visibility: openServiceDropdown
+                                  ? "visible"
+                                  : "hidden",
+                              }}
+                              exit={{ opacity: 0, visibility: "hidden" }}
+                              transition={{
+                                delay: openServiceDropdown ? 0.3 : 0,
+                              }}
+                            >
+                              <button
+                                className="text-sm block font-fira font-light tracking-wider text-offWhite  hover:opacity-50 transition-all"
+                                onClick={() => {
+                                  router.push(`/services#additional-events`);
+                                  setIsOpen(false);
+                                }}
+                              >
+                                - Additional Events
+                              </button>
+                            </motion.li>
                           </motion.ul>
                         </motion.li>
                         <motion.li
