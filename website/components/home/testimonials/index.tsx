@@ -1,8 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper";
+import { Autoplay, Pagination, EffectFade } from "swiper";
 import dynamic from "next/dynamic";
 
 import { TestimonialsProps } from "../../../interfaces/TestimonialsProps";
+import "swiper/css";
+import "swiper/css/effect-fade";
 
 const Testimonial = dynamic(() => import("./testimonial"));
 
@@ -21,7 +23,7 @@ const Testimonials = ({
         {testimonialsTitle}
       </h3>
       <Swiper
-        modules={[Autoplay, Pagination]}
+        modules={[Autoplay, Pagination, EffectFade]}
         slidesPerView={1}
         autoHeight
         autoplay={{
@@ -32,6 +34,7 @@ const Testimonials = ({
           swiper.autoplay.start();
         }}
         pagination={{ clickable: true }}
+        effect="fade"
       >
         {testimonials.map((testimonial) => {
           const { testimonial: text, name } = testimonial;
