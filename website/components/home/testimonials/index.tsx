@@ -23,7 +23,7 @@ const Testimonials = ({
         {testimonialsTitle}
       </h3>
       <Swiper
-        modules={[Autoplay, Pagination, EffectFade]}
+        modules={[Autoplay, Pagination]}
         slidesPerView={1}
         autoHeight
         autoplay={{
@@ -34,7 +34,6 @@ const Testimonials = ({
           swiper.autoplay.start();
         }}
         pagination={{ clickable: true }}
-        effect="fade"
       >
         {testimonials.map((testimonial) => {
           const { testimonial: text, name } = testimonial;
