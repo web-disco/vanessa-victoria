@@ -1,5 +1,7 @@
 import type { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
+import { DefaultSeo } from "next-seo";
+import SEO from "../next-seo.config";
 
 import client from "../client";
 import CallToAction from "../components/global/call-to-action";
@@ -30,6 +32,7 @@ const Home = ({ page }: HomePageProps) => {
 
   return (
     <>
+      <DefaultSeo title="Home | Vanessa Victoria Wedding & Events" {...SEO} />
       <Slider slider={slider} />
       <Intro title={title} subtitle={subtitle} description={description} />
       <Quote quote={quote} quoteImage={quoteImage} />

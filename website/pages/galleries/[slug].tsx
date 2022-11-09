@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
+import { DefaultSeo } from "next-seo";
+import SEO from "../../next-seo.config";
 
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import { VscChromeClose } from "react-icons/vsc";
@@ -193,6 +195,10 @@ const SingleGallery = ({ gallery }: any) => {
   };
   return (
     <>
+      <DefaultSeo
+        title={`${gallery.title}  | Vanessa Victoria Wedding & Events`}
+        {...SEO}
+      />
       <PageBanner type={gallery && gallery.title} />
       <div className="container">
         <div className="grid grid-cols-2 gap-4 lg:gap-8 my-8">

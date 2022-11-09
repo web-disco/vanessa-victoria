@@ -1,5 +1,7 @@
 import dynamic from "next/dynamic";
 import type { GetServerSideProps } from "next";
+import { DefaultSeo } from "next-seo";
+import SEO from "../next-seo.config";
 
 import client from "../client";
 import { servicesQuery } from "../utils/queries";
@@ -13,6 +15,10 @@ const TextBlockWithImage = dynamic(
 const Services = ({ services }: ServicesProps) => {
   return (
     <>
+      <DefaultSeo
+        title="Services | Vanessa Victoria Wedding & Events"
+        {...SEO}
+      />
       <PageBanner type="services" />
       {services.map((service, index) => {
         let position: string;

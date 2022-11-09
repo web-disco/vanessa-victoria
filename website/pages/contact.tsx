@@ -3,6 +3,8 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import Image from "next/future/image";
 import { PortableText } from "@portabletext/react";
+import { DefaultSeo } from "next-seo";
+import SEO from "../next-seo.config";
 
 import client from "../client";
 import { contactPageQuery } from "../utils/queries";
@@ -29,6 +31,10 @@ const Contact = () => {
 
   return (
     <>
+      <DefaultSeo
+        title="Contact | Vanessa Victoria Wedding & Events"
+        {...SEO}
+      />
       <PageBanner type="Contact Us" />
       <div className="max-w-[800px] mx-auto my-20 px-[25px]">
         {contactPage && (

@@ -1,6 +1,8 @@
 import type { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 import slufify from "slugify";
+import { DefaultSeo } from "next-seo";
+import SEO from "../next-seo.config";
 
 import client from "../client";
 
@@ -30,6 +32,7 @@ const About = ({ page }: AboutPageProps) => {
 
   return (
     <>
+      <DefaultSeo title="About | Vanessa Victoria Wedding & Events" {...SEO} />
       <PageBanner type={page._type} />
       <TextBlockWithImage
         title={companyTitle}
