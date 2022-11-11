@@ -32,14 +32,6 @@ body {
   }
 }
 
-.swiper .swiper-pagination {
-  position: relative !important;
-  margin-top: 25px;
-}
-
-.swiper .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #827252 !important;
-}
 
 .text-block p{
   margin-bottom: 25px;

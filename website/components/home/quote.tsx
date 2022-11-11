@@ -13,7 +13,7 @@ interface QuoteProps {
 
 const Quote = ({ quote, quoteImage }: QuoteProps) => {
   return (
-    <div className="container text-center lg:text-left flex flex-col-reverse lg:flex-row justify-between h-full items-center my-40 lg:space-x-8">
+    <div className="container text-center lg:text-left flex flex-col-reverse lg:flex-row justify-between h-full items-center mb-20 lg:space-x-8">
       <div className="max-w-4xl lg:max-w-lg">
         <div className="font-light italic leading-7">
           <PortableText value={quote} />

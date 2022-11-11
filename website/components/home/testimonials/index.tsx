@@ -1,10 +1,8 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, EffectFade } from "swiper";
 import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
+import { gsap } from "gsap";
 
 import { TestimonialsProps } from "../../../interfaces/TestimonialsProps";
-import "swiper/css";
-import "swiper/css/effect-fade";
 
 const Testimonial = dynamic(() => import("./testimonial"));
 
@@ -12,44 +10,77 @@ const Testimonials = ({
   testimonialsTitle,
   testimonials,
 }: TestimonialsProps) => {
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
+
+  useEffect(() => {
+    const testimonials: HTMLDivElement[] = gsap.utils.toArray(".testimonial");
+    gsap.set(testimonials, { autoAlpha: 0, display: "none" });
+    testimonials.forEach((el, i) => {
+      if (i === testimonialIndex) {
+        gsap.to(el, {
+          autoAlpha: 1,
+          display: "block",
+        });
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    const testimonials: HTMLDivElement[] = gsap.utils.toArray(".testimonial");
+    gsap.set(testimonials, { autoAlpha: 0, display: "none" });
+    testimonials.forEach((el, i) => {
+      if (i === testimonialIndex) {
+        gsap.to(el, {
+          autoAlpha: 1,
+          display: "block",
+        });
+      }
+    });
+  }, [testimonialIndex]);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+  };
   return (
-    <div className="max-w-[800px] mx-auto text-center relative my-40">
-      <img
-        src="/assets/testimonals-accent-1.svg"
-        alt="accent"
-        className="absolute left-3 lg:-left-4 -top-5 z-10"
-      />
-      <h3 className="text-5xl font-tangerine text-brown mb-4">
-        {testimonialsTitle}
-      </h3>
-      <Swiper
-        modules={[Autoplay, Pagination]}
-        slidesPerView={1}
-        autoHeight
-        autoplay={{
-          delay: 5500,
-        }}
-        onSwiper={(swiper) => {
-          swiper.slideNext();
-          swiper.autoplay.start();
-        }}
-        pagination={{ clickable: true }}
-      >
+    <>
+      <div className="max-w-[800px] mx-auto text-center relative mb-20 lg:mb-40">
+        <img
+          src="/assets/testimonals-accent-1.svg"
+          alt="accent"
+          className="absolute left-3 lg:-left-4 -top-5 z-10"
+        />
+        <h3 className="text-5xl font-tangerine text-brown mb-4">
+          {testimonialsTitle}
+        </h3>
         {testimonials.map((testimonial) => {
           const { testimonial: text, name } = testimonial;
-          return (
-            <SwiperSlide key={testimonial._key}>
-              <Testimonial testimonial={text} name={name} />
-            </SwiperSlide>
-          );
+          return <Testimonial key={name} testimonial={text} name={name} />;
         })}
-      </Swiper>
-      <img
-        src="/assets/testimonials-accent-2.svg"
-        alt="accent"
-        className="absolute -bottom-4 right-3 lg:-right-4 z-10"
-      />
-    </div>
+        <img
+          src="/assets/testimonials-accent-2.svg"
+          alt="accent"
+          className="absolute -bottom-4 right-3 lg:-right-4 z-10"
+        />
+        <div className="flex items-center justify-center mt-5 space-x-3">
+          {testimonials.map((_, i) => (
+            <button
+              onClick={() => {
+                setTestimonialIndex(i);
+              }}
+              className={`w-[10px] h-[10px] rounded-full transition-all ${
+                i === testimonialIndex
+                  ? "bg-brown"
+                  : "bg-gray-300 hover:bg-brown"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </>
   );
 };
 
