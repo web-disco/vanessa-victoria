@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { gsap } from "gsap";
 
 import { TestimonialsProps } from "../../../interfaces/TestimonialsProps";
@@ -58,7 +58,11 @@ const Testimonials = ({
         </h3>
         {testimonials.map((testimonial) => {
           const { testimonial: text, name } = testimonial;
-          return <Testimonial key={name} testimonial={text} name={name} />;
+          return (
+            <Fragment key={testimonial._key}>
+              <Testimonial testimonial={text} name={name} />
+            </Fragment>
+          );
         })}
         <img
           src="/assets/testimonials-accent-2.svg"
