@@ -75,6 +75,7 @@ const Testimonials = ({
               onClick={() => {
                 setTestimonialIndex(i);
               }}
+              key={_._key}
               className={`w-[10px] h-[10px] rounded-full transition-all ${
                 i === testimonialIndex
                   ? "bg-brown"
