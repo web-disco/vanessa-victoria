@@ -38,13 +38,18 @@ const Testimonials = ({
     });
   }, [testimonialIndex]);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (testimonialIndex === testimonials.length - 1) {
+        setTestimonialIndex(0);
+      } else {
+        setTestimonialIndex(testimonialIndex + 1);
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [testimonialIndex]);
+
   return (
     <>
       <div className="max-w-[800px] mx-auto text-center relative mb-20 lg:mb-40">
