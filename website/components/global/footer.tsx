@@ -138,7 +138,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="hidden sm:flex flex-col">
-          <ul className="font-fia flex space-x-4 text-[20px]">
+          <ul className="font-fia flex space-x-4 text-[20px] justify-end">
             {websiteSettings?.instagram && (
               <li className="text-black hover:text-brown transition-all">
                 <Link href={websiteSettings.instagram}>
@@ -175,22 +175,50 @@ const Footer = () => {
               </li>
             )}
           </ul>
-          <a
-            href="https://wpic.ca/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="pt-6"
-          >
-            <Image
-              src="/assets/footer-pin.png"
-              width={90}
-              height={90}
-              alt="WPIOC"
-            />
-          </a>
+          <div className="flex space-x-5">
+            <a
+              href="https://wedluxe.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pt-6"
+            >
+              <Image
+                src="/assets/wed-lux.png"
+                width={90}
+                height={90}
+                alt="Wed Lux"
+              />
+            </a>
+            <a
+              href="https://wpic.ca/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pt-6"
+            >
+              <Image
+                src="/assets/footer-pin.png"
+                width={90}
+                height={90}
+                alt="WPIOC"
+              />
+            </a>
+          </div>
         </div>
       </div>
-      <div className="block sm:hidden text-center pb-10">
+      <div className="flex sm:hidden justify-center space-x-5 text-center pb-10">
+        <a
+          href="https://wedluxe.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src="/assets/wed-lux.png"
+            width={100}
+            height={100}
+            alt="WED LUX"
+            className="mx-auto"
+          />
+        </a>
         <a href="https://wpic.ca/" target="_blank" rel="noopener noreferrer">
           <Image
             src="/assets/footer-pin.png"
